@@ -1,0 +1,25 @@
+Ifexist C:\Program Files\IQMS\IQWin32\Iqwin32.exe
+Run C:\Program Files\IQMS\IQWin32\Iqwin32.exe
+Ifexist C:\Program Files (x86)\IQMS\IQWin32\Iqwin32.exe
+Run C:\Program Files (x86)\IQMS\IQWin32\Iqwin32.exe
+
+WinWait,ahk_class TIQLauncher , ,15
+if ErrorLevel
+{
+    MSGBox, NO IQMS window found.
+ExitApp
+}
+else
+Sleep 1000
+if WinActive ahk_class TIQLauncher
+sleep 3000
+Send, {Alt}FDA
+Sleep 1000
+Send, {enter}
+Sleep 500
+Send, {enter}
+Sleep 2000
+Send, {Alt}
+Send,R
+Send,P
+Sleep 2000
